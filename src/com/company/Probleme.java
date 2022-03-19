@@ -8,9 +8,9 @@ import java.io.IOException;
 public class Probleme {
     int nombre_machine;
     int nombre_taches;
-    int matrice_temps[][];
+    int[][] matrice_temps;
 
-    public Probleme() {  //Constructeur pour tester manuellement
+    public Probleme() {  //Constructeur pour tester manuellement (ICI les lignes sont les taches et les colonnes sont les machines)
         this.nombre_machine = 3;
         this.nombre_taches = 4;
         matrice_temps = new int[4][3];
@@ -32,9 +32,9 @@ public class Probleme {
         this.lire_fichier(fileName);
     }
 
-    private void lire_fichier(String fileName) {
-        FileReader fr = null;
-        BufferedReader br = null;
+    private void lire_fichier(String fileName) { // Lire la matrice à partir d'un fichier texte
+        FileReader fr;
+        BufferedReader br;
         String line;
         String[] tokens;
         int m = 0, n = 0, tache = 0;
@@ -45,7 +45,7 @@ public class Probleme {
             boolean param = true;
             while (line != null) {
                 line = line.trim();
-                if (!line.matches(";;;*.*")) {
+                if (!line.matches(";;;*.*")) { // si la line n'est pas un commentaire
                     tokens = line.split("\\s+");
                     if (param) {
                         n = Integer.parseInt(tokens[0]);
@@ -73,12 +73,12 @@ public class Probleme {
             System.err.println("IO exception was thrown");
             e.printStackTrace();
         }
-
         matrice_temps = transposeMatrix(matrice_temps);
         this.nombre_taches = m;
         this.nombre_machine = n;
 
     }
+
     public int[][] transposeMatrix(int[][] m) {
         int[][] temp = new int[m[0].length][m.length];
         for (int i = 0; i < m.length; i++)

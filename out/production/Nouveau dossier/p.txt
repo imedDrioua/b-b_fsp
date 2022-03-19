@@ -1,6 +1,6 @@
-;; premiere argument c'est le nombre des machines
-;; deuxième argument c'est les taches.
-;; La matrice doit etre : lignes : machines --- colonnes : taches.
+;; premier argument, c'est le nombre des machines
+;; deuxième argument, c'est les taches.
+;; La matrice doit entre : lignes : machines --- colonnes : taches.
 10
 20
  26 38 27 88 95 55 54 63 23 45 86 43 43 40 37 54 35 59 43 50
